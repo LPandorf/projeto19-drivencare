@@ -5,6 +5,7 @@ import dotenv from 'dotenv';
 
 import patientAuthRouter from './routes/patientAuthRoutes.js';
 import doctorAuthRouter from './routes/doctorAuthRoutes.js';
+import searchRoute from './routes/searchRoute.js';
 
 dotenv.config();
 
@@ -16,6 +17,7 @@ app.use(helmet());
 
 app.use(patientAuthRouter);
 app.use(doctorAuthRouter);
+app.use(searchRoute);
 
 const port = process.env.PORT || 5000;
 

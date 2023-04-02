@@ -1,4 +1,4 @@
-import {sanitizeObject} from "../utils/sanitazeObject.js";
+import { sanitizeObject } from "../utils/sanitazeObject.js";
 
 const processRequestParams = (schema) => {
   return (req, res, next) => {
@@ -9,6 +9,7 @@ const processRequestParams = (schema) => {
 
       return res.status(422).send({ message: errorMessages });
     }
+
     next();
   };
 };
