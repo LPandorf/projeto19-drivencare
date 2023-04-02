@@ -9,4 +9,4 @@ const router=Router();
 router.post('/patient/sign-up', processRequestParams(patientSignUpSchema), patientSignUpMiddleware, patientSignUp);
 router.post('/patient/', processRequestParams(patientSignInSchema), patientSignInMiddleware, patientSignIn);
 
-export default router
+export default router;
