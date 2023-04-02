@@ -10,7 +10,7 @@ dotenv.config(); */
 export async function doctorSignInValidate(req, res, next) {
     const {email,password} = req.body;
 
-    let doctorSingInData;
+    let doctorSignInData;
 
     try{
         const doctorExists= await validateDoctorExists(email);
@@ -26,7 +26,7 @@ export async function doctorSignInValidate(req, res, next) {
         }
 
         if(doctorExists.rowCount>0 && passwordCorrect){
-            doctorSingInData={
+            doctorSignInData={
                 email: email,
                 password: doctorExists.rows[0].password,
                 id: doctorExists.rows[0].id,
@@ -34,10 +34,9 @@ export async function doctorSignInValidate(req, res, next) {
             };
         }
 
-        res.locals=doctorSingInData;
+        res.locals=doctorSignInData;
         next();
     }catch (err) {
-        console.log(err);
         return res.status(STATUS_CODE.SERVER_ERROR).send(err);
     }
 };
@@ -55,7 +54,6 @@ export async function doctorSignUpValidate(req, res, next) {
         res.locals=doctor;
         next();
     }catch (err) {
-        console.log(err);
         return res.status(STATUS_CODE.SERVER_ERROR).send(err);
     }
 };

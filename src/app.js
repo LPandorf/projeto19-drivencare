@@ -3,7 +3,7 @@ import helmet from 'helmet';
 import cors from 'cors';
 import dotenv from 'dotenv';
 
-import pacientAuthRouter from './routes/patientAuthRoutes.js';
+import patientAuthRouter from './routes/patientAuthRoutes.js';
 import doctorAuthRouter from './routes/doctorAuthRoutes.js';
 
 dotenv.config();
@@ -14,7 +14,7 @@ app.use(json());
 app.use(cors());
 app.use(helmet());
 
-app.use(pacientAuthRouter);
+app.use(patientAuthRouter);
 app.use(doctorAuthRouter);
 
 const port = process.env.PORT || 5000;
