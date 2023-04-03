@@ -1,4 +1,4 @@
-import { STATUS_CODE } from "../utils/statusCode";
+import { STATUS_CODE } from "../utils/statusCode.js";
 import { checkDisponibility, checkAppointment } from "../repositories/appointmentRepositories.js";
 
 export async function isAvailable (req, res, next) {
