@@ -31,28 +31,8 @@ CREATE TABLE public.appointment (
     status text DEFAULT 'esperando'::text NOT NULL,
     date date NOT NULL,
     hour time without time zone NOT NULL,
-    created_at integer NOT NULL
+    created_at timestamp without time zone NOT NULL
 );
-
-
---
--- Name: appointment_created_at_seq; Type: SEQUENCE; Schema: public; Owner: -
---
-
-CREATE SEQUENCE public.appointment_created_at_seq
-    AS integer
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
---
--- Name: appointment_created_at_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
---
-
-ALTER SEQUENCE public.appointment_created_at_seq OWNED BY public.appointment.created_at;
 
 
 --
@@ -128,28 +108,8 @@ CREATE TABLE public.doctor (
     crm_state text NOT NULL,
     password text NOT NULL,
     specialty text NOT NULL,
-    created_at integer NOT NULL
+    created_at timestamp without time zone NOT NULL
 );
-
-
---
--- Name: doctor_created_at_seq; Type: SEQUENCE; Schema: public; Owner: -
---
-
-CREATE SEQUENCE public.doctor_created_at_seq
-    AS integer
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
---
--- Name: doctor_created_at_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
---
-
-ALTER SEQUENCE public.doctor_created_at_seq OWNED BY public.doctor.created_at;
 
 
 --
@@ -183,28 +143,8 @@ CREATE TABLE public.patient (
     phone bigint NOT NULL,
     cpf bigint NOT NULL,
     password text NOT NULL,
-    created_at integer NOT NULL
+    created_at timestamp without time zone NOT NULL
 );
-
-
---
--- Name: patient_created_at_seq; Type: SEQUENCE; Schema: public; Owner: -
---
-
-CREATE SEQUENCE public.patient_created_at_seq
-    AS integer
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
---
--- Name: patient_created_at_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
---
-
-ALTER SEQUENCE public.patient_created_at_seq OWNED BY public.patient.created_at;
 
 
 --
@@ -249,13 +189,6 @@ ALTER TABLE ONLY public.appointment ALTER COLUMN doctor_id SET DEFAULT nextval('
 
 
 --
--- Name: appointment created_at; Type: DEFAULT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.appointment ALTER COLUMN created_at SET DEFAULT nextval('public.appointment_created_at_seq'::regclass);
-
-
---
 -- Name: doctor id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -263,24 +196,10 @@ ALTER TABLE ONLY public.doctor ALTER COLUMN id SET DEFAULT nextval('public.docto
 
 
 --
--- Name: doctor created_at; Type: DEFAULT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.doctor ALTER COLUMN created_at SET DEFAULT nextval('public.doctor_created_at_seq'::regclass);
-
-
---
 -- Name: patient id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.patient ALTER COLUMN id SET DEFAULT nextval('public.patient_id_seq'::regclass);
-
-
---
--- Name: patient created_at; Type: DEFAULT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.patient ALTER COLUMN created_at SET DEFAULT nextval('public.patient_created_at_seq'::regclass);
 
 
 --
@@ -299,13 +218,6 @@ ALTER TABLE ONLY public.patient ALTER COLUMN created_at SET DEFAULT nextval('pub
 -- Data for Name: patient; Type: TABLE DATA; Schema: public; Owner: -
 --
 
-
-
---
--- Name: appointment_created_at_seq; Type: SEQUENCE SET; Schema: public; Owner: -
---
-
-SELECT pg_catalog.setval('public.appointment_created_at_seq', 1, false);
 
 
 --
@@ -330,24 +242,10 @@ SELECT pg_catalog.setval('public.appointment_patient_id_seq', 1, false);
 
 
 --
--- Name: doctor_created_at_seq; Type: SEQUENCE SET; Schema: public; Owner: -
---
-
-SELECT pg_catalog.setval('public.doctor_created_at_seq', 1, false);
-
-
---
 -- Name: doctor_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.doctor_id_seq', 1, false);
-
-
---
--- Name: patient_created_at_seq; Type: SEQUENCE SET; Schema: public; Owner: -
---
-
-SELECT pg_catalog.setval('public.patient_created_at_seq', 1, false);
 
 
 --

@@ -13,3 +13,5 @@ export function patientAppointment(userId){
         [userId]
     )
 }
+
+// JOIN name FROM doctor WHERE id=doctor_id`
