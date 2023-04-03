@@ -14,8 +14,6 @@ export function patientAppointment(userId){
     );
 }
 
-// JOIN name FROM doctor WHERE id=doctor_id`
-
 export function checkDisponibility(date, hour, doctor_id){
     return connection.query(
         `SELECT * FROM appointment WHERE date=$1 AND hour=$2 AND doctor_id=$3`,
